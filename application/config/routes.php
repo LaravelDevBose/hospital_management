@@ -40,10 +40,12 @@ $route['bill_entry'] 				= 'Template/patient_bill_entry';
 $route['bill_collection'] 			= 'Template/patient_bill_collection';
 
 $route['patient_test_entry'] 		= 'Template/patient_test_entry_page';
-$route['test_report'] 				= 'Template/test_report_delivery_page';
-$route['test_setting'] 				= 'Template/test_setting_page';
+$route['test_report_delivery'] 		= 'Template/test_report_delivery_page';
+$route['test_report_create'] 		= 'Template/test_report_create';
 
 
 $route['department'] 			=	'Template/department_info_page';
 $route['designation'] 			=	'Template/designation_info_page';
 $route['expense_head']			=	'Template/expense_head_info_page';
+$route['salary_month']			=	'Template/salary_month_entry_page';
+$route['test_report_template']	=	'Template/test_report_template_entry';

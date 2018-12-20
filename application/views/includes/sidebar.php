@@ -16,7 +16,7 @@
 				<li class="sidebar-user-panel">
 					<div class="user-panel">
 						<div class="pull-left image">
-							<img src="img/dp.jpg" class="img-circle user-img-circle" alt="User Image" />
+							<img src="<?= base_url()?>assets/img/dp.jpg" class="img-circle user-img-circle" alt="User Image" />
 						</div>
 						<div class="pull-left info">
 							<p> Dr.Kiran Patel</p>
@@ -121,7 +121,7 @@
 						</li>
 						<li class="nav-item  ">
 							<a href="<?= base_url()?>supplier" class="nav-link ">
-								<span class="title">Purchase Record</span>
+								<span class="title">Supplier Entry</span>
 							</a>
 						</li>
 					</ul>
@@ -235,13 +235,13 @@
 							</a>
 						</li>
 						<li class="nav-item ">
-							<a href="<?= base_url()?>test_report" class="nav-link ">
-								<span class="title">Test Report</span>
+							<a href="<?= base_url()?>test_report_delivery" class="nav-link ">
+								<span class="title">Test Report Delivery</span>
 							</a>
 						</li>
 						<li class="nav-item  ">
-							<a href="<?= base_url()?>test_setting" class="nav-link ">
-								<span class="title">Test Setting</span>
+							<a href="<?= base_url()?>test_report_create" class="nav-link ">
+								<span class="title">Test Report Create</span>
 							</a>
 						</li>
 
@@ -269,6 +269,16 @@
 						<li class="nav-item  ">
 							<a href="<?= base_url()?>expense_head" class="nav-link ">
 								<span class="title">Expense Head</span>
+							</a>
+						</li>
+						<li class="nav-item  ">
+							<a href="<?= base_url()?>salary_month" class="nav-link ">
+								<span class="title">Salary Month</span>
+							</a>
+						</li>
+						<li class="nav-item  ">
+							<a href="<?= base_url()?>test_report_template" class="nav-link ">
+								<span class="title">Test Report Template</span>
 							</a>
 						</li>
 

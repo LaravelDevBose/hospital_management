@@ -76,40 +76,40 @@ class Template extends MY_Controller {
 
 	public function purchase_entry_page(){
 
-		$data['title'] = 'Discharge Entry';
-		$data['content'] = 'admission/discharge_entry_page';
+		$data['title'] = 'Purchase Entry';
+		$data['content'] = 'pharmacy/purchase_entry_page';
 		$this->load->view('admin_master',$data);
 	}
 
 	public function stock_search_page(){
 
-		$data['title'] = 'Discharge Entry';
-		$data['content'] = 'admission/discharge_entry_page';
+		$data['title'] = 'Product Stock';
+		$data['content'] = 'pharmacy/stock_page';
 		$this->load->view('admin_master',$data);
 	}
 
 	public function sales_return_page(){
 
-		$data['title'] = 'Discharge Entry';
-		$data['content'] = 'admission/discharge_entry_page';
+		$data['title'] = 'Sale Return';
+		$data['content'] = 'pharmacy/sale_return';
 		$this->load->view('admin_master',$data);
 	}
 
 	public function purchase_return_page(){
-		$data['title'] = 'Discharge Entry';
-		$data['content'] = 'admission/discharge_entry_page';
+		$data['title'] = 'Purchase Return';
+		$data['content'] = 'pharmacy/purchase_return';
 		$this->load->view('admin_master',$data);
 	}
 
 	public function sales_record_page(){
-		$data['title'] = 'Discharge Entry';
-		$data['content'] = 'admission/discharge_entry_page';
+		$data['title'] = 'Sale Record';
+		$data['content'] = 'pharmacy/sale_record';
 		$this->load->view('admin_master',$data);
 	}
 
 	public function purchase_record_page(){
-		$data['title'] = 'Discharge Entry';
-		$data['content'] = 'admission/discharge_entry_page';
+		$data['title'] = 'Purchase Record';
+		$data['content'] = 'pharmacy/purchase_record';
 		$this->load->view('admin_master',$data);
 	}
 
@@ -190,15 +190,21 @@ class Template extends MY_Controller {
 	}
 
 	public function patient_test_entry_page(){
-
+		$data['title'] = 'Patient Test Entry';
+		$data['content'] = 'lab/patient_test_entry';
+		$this->load->view('admin_master',$data);
 	}
 
 	public function test_report_delivery_page(){
-
+		$data['title'] = 'Patient Test Delivery';
+		$data['content'] = 'lab/test_delivery';
+		$this->load->view('admin_master',$data);
 	}
 
-	public function test_setting_page(){
-
+	public function test_report_create(){
+		$data['title'] = 'Test Report Create';
+		$data['content'] = 'lab/test_report_make';
+		$this->load->view('admin_master',$data);
 	}
 
 	public function department_info_page(){
@@ -216,6 +222,18 @@ class Template extends MY_Controller {
 	public function expense_head_info_page(){
 		$data['title'] = 'Expense Head Info';
 		$data['content'] = 'administration/expense_head_page';
+		$this->load->view('admin_master',$data);
+	}
+
+	public function salary_month_entry_page(){
+		$data['title'] = 'Salary Month Info';
+		$data['content'] = 'administration/salary_month';
+		$this->load->view('admin_master',$data);
+	}
+
+	public function test_report_template_entry(){
+		$data['title'] = 'Test Report Template';
+		$data['content'] = 'administration/test_report_template';
 		$this->load->view('admin_master',$data);
 	}
 

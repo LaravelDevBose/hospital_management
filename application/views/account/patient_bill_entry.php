@@ -75,7 +75,7 @@
 										<span class="required"> * </span>
 									</label>
 									<div class="col-md-8">
-										<select class="form-control input-height" name="department">
+										<select class="form-control select2" name="department">
 											<option value="">Select...</option>
 											<option value="Category 1">Neurology</option>
 											<option value="Category 2">Orthopedics</option>

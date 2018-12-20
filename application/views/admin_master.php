@@ -27,6 +27,8 @@
 	<link href="<?= base_url()?>assets/plugin/datatables/plugins/bootstrap/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css"/>
 	<link href="<?= base_url()?>assets/plugin/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css" />
 	<link href="<?= base_url()?>assets/plugin/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+	<link href="<?= base_url()?>assets/plugin/bootstrap-editable/bootstrap-editable/css/bootstrap-editable.css" rel="stylesheet" type="text/css" />
+	<link href="<?= base_url()?>assets/plugin/bootstrap-editable/inputs-ext/address/address.css" rel="stylesheet" type="text/css" />
 	<!-- Material Design Lite CSS -->
 	<link rel="stylesheet" href="<?= base_url()?>assets/plugin/material/material.min.css">
 	<link rel="stylesheet" href="<?= base_url()?>assets/css/material_style.css">
@@ -37,11 +39,13 @@
 	<link href="<?= base_url()?>assets/css/formlayout.css" rel="stylesheet" type="text/css" />
 	<link href="<?= base_url()?>assets/css/responsive.css" rel="stylesheet" type="text/css" />
 	<link href="<?= base_url()?>assets/css/theme-color.css" rel="stylesheet" type="text/css" />
+	<link href="<?= base_url()?>assets/plugin/summernote/summernote.css" rel="stylesheet">
 	<!--select2-->
 	<link href="<?= base_url()?>assets/plugin/select2/css/select2.css" rel="stylesheet" type="text/css" />
 	<link href="<?= base_url()?>assets/plugin/select2/css/select2-bootstrap.min.css" rel="stylesheet" type="text/css" />
 	<!-- favicon -->
 	<link rel="shortcut icon" href="<?= base_url()?>assets/img/favicon.ico" />
+	<script src="<?= base_url()?>assets/plugin/jquery.min.js" ></script>
 </head>
 <!-- END HEAD -->
 <body class="page-header-fixed sidemenu-closed-hidelogo page-content-white page-md header-white white-sidebar-color logo-indigo">
@@ -149,7 +153,7 @@
 	<!-- end footer -->
 </div>
 <!-- start js include path -->
-<script src="<?= base_url()?>assets/plugin/jquery.min.js" ></script>
+
 <script src="<?= base_url()?>assets/plugin/popper/popper.js" ></script>
 <script src="<?= base_url()?>assets/plugin/jquery.blockui.min.js" ></script>
 <script src="<?= base_url()?>assets/plugin/jquery.slimscroll.js"></script>
@@ -181,6 +185,12 @@
 <script src="<?= base_url()?>assets/plugin/select2/js/select2.js" ></script>
 <script src="<?= base_url()?>assets/plugin/select2/js/select2-init.js" ></script>
 <!-- end js include path -->
+<script src="<?= base_url()?>assets/plugin/summernote/summernote.js" ></script>
+<script >
+	$(document).ready(function() {
+		$('#summernote').summernote();
+	});
+</script>
 </body>
 
 </html>
