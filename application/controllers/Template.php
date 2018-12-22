@@ -3,13 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Template extends MY_Controller {
 
-	public function index(){
-		redirect('Template/login_page');
-	}
-	public function login_page()
-	{
-		$this->load->view('login_page');
-	}
 
 	public function dashboard_page(){
 		$data['title'] = 'Dashboard';

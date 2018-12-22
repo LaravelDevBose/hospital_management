@@ -2,12 +2,22 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 
-$route['default_controller'] = 'Template/login_page';
+$route['default_controller'] = 'LoginController/index';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-$route['/'] 					=	'Template/login_page';
-$route['dashboard']				=	'Template/dashboard_page';
+$route['/'] 			=	'LoginController/index';
+$route['admin_login'] 	= 	'LoginController/admin_login_submit';
+$route['admin_logout'] 	= 	'LoginController/admin_logout_submit';
+
+$route['admin_profile']	=	'AdminController/admin_profile_page';
+$route['admin_profile_update']	=	'AdminController/admin_profile_update';
+$route['password_change']	=	'AdminController/admin_password_change';
+
+
+$route['dashboard']				=	'DashboardController/index';
+
+
 $route['admission_entry']		=	'Template/admission_entry_page';
 $route['patient_list']			=	'Template/patient_list';
 $route['release_entry']			=	'Template/release_entry_page';

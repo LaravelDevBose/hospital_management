@@ -16,10 +16,19 @@
 				<li class="sidebar-user-panel">
 					<div class="user-panel">
 						<div class="pull-left image">
-							<img src="<?= base_url()?>assets/img/dp.jpg" class="img-circle user-img-circle" alt="User Image" />
+							<?php
+							$avatar = base_url().'assets/img/dp.jpg';
+							if($this->session->userData('avatar')){
+								$avatar = $this->session->userData('avatar');
+								if(!file_exists($avatar) || !@getimagesize($avatar)){
+									$avatar = base_url().'assets/img/dp.jpg';
+								}
+							}
+							?>
+							<img src="<?= $avatar; ?>" class="img-circle user-img-circle" alt="User Image" />
 						</div>
 						<div class="pull-left info">
-							<p> Dr.Kiran Patel</p>
+							<p><?= ucfirst($this->session->userData('name'));?></p>
 							<a href="#"><i class="fa fa-circle user-online"></i><span class="txtOnline"> Online</span></a>
 						</div>
 					</div>
