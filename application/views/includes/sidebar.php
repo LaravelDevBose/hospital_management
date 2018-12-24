@@ -25,7 +25,7 @@
 								}
 							}
 							?>
-							<img src="<?= $avatar; ?>" class="img-circle user-img-circle" alt="User Image" />
+							<img src="<?= $avatar; ?>" class="img-circle user-img-circle"  alt="User Image" />
 						</div>
 						<div class="pull-left info">
 							<p><?= ucfirst($this->session->userData('name'));?></p>
@@ -131,6 +131,11 @@
 						<li class="nav-item  ">
 							<a href="<?= base_url()?>supplier" class="nav-link ">
 								<span class="title">Supplier Entry</span>
+							</a>
+						</li>
+						<li class="nav-item  ">
+							<a href="<?= base_url()?>medicine_entry" class="nav-link ">
+								<span class="title">Medicine Entry</span>
 							</a>
 						</li>
 					</ul>
@@ -264,6 +269,21 @@
 						<span class="arrow open"></span>
 					</a>
 					<ul class="sub-menu">
+						<li class="nav-item ">
+							<a href="<?= base_url()?>category_entry" class="nav-link ">
+								<span class="title">Category</span>
+							</a>
+						</li>
+						<li class="nav-item ">
+							<a href="<?= base_url()?>brand_entry" class="nav-link ">
+								<span class="title">Brand</span>
+							</a>
+						</li>
+						<li class="nav-item ">
+							<a href="<?= base_url()?>unit_entry" class="nav-link ">
+								<span class="title">Unit</span>
+							</a>
+						</li>
 						<li class="nav-item">
 							<a href="<?= base_url()?>department" class="nav-link ">
 								<span class="title">Department</span>
@@ -288,6 +308,11 @@
 						<li class="nav-item  ">
 							<a href="<?= base_url()?>test_report_template" class="nav-link ">
 								<span class="title">Test Report Template</span>
+							</a>
+						</li>
+						<li class="nav-item ">
+							<a href="<?= base_url()?>room_entry" class="nav-link ">
+								<span class="title">Room Entry</span>
 							</a>
 						</li>
 

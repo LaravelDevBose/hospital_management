@@ -33,6 +33,8 @@ $route['purchase_return']		= 'Template/purchase_return_page';
 $route['sales_record']			= 'Template/sales_record_page';
 $route['purchase_record']		= 'Template/purchase_record_page';
 $route['supplier']				= 'Template/supplier_page';
+$route['medicine_entry']		= 'Template/medicine_entry_page';
+
 
 $route['doctor_entry']			=	'Template/doctor_entry_page';
 $route['stuff_entry']			=	'Template/stuff_entry_page';
@@ -59,3 +61,7 @@ $route['designation'] 			=	'Template/designation_info_page';
 $route['expense_head']			=	'Template/expense_head_info_page';
 $route['salary_month']			=	'Template/salary_month_entry_page';
 $route['test_report_template']	=	'Template/test_report_template_entry';
+$route['category_entry']		=	'Template/category_entry_page';
+$route['brand_entry']			=	'Template/brand_entry_page';
+$route['unit_entry']			=	'Template/unit_entry_page';
+$route['room_entry']			=	'Template/room_entry_page';

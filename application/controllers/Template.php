@@ -108,7 +108,13 @@ class Template extends MY_Controller {
 
 	public function supplier_page(){
 		$data['title'] = 'Discharge Entry';
-		$data['content'] = 'admission/discharge_entry_page';
+		$data['content'] = 'pharmacy/discharge_entry_page';
+		$this->load->view('admin_master',$data);
+	}
+
+	public function medicine_entry_page(){
+		$data['title'] = 'Medicine Entry';
+		$data['content'] = 'pharmacy/medicine_entry_page';
 		$this->load->view('admin_master',$data);
 	}
 
@@ -230,4 +236,27 @@ class Template extends MY_Controller {
 		$this->load->view('admin_master',$data);
 	}
 
+	public function category_entry_page(){
+		$data['title'] = 'Category Info';
+		$data['content'] = 'administration/category_page';
+		$this->load->view('admin_master',$data);
+	}
+
+	public function brand_entry_page(){
+		$data['title'] = 'Brand Info';
+		$data['content'] = 'administration/brand_page';
+		$this->load->view('admin_master',$data);
+	}
+
+	public function unit_entry_page(){
+		$data['title'] = 'Unit Info';
+		$data['content'] = 'administration/unit_page';
+		$this->load->view('admin_master',$data);
+	}
+
+	public function room_entry_page(){
+		$data['title'] = 'Room Or Bed Info';
+		$data['content'] = 'administration/room_page';
+		$this->load->view('admin_master',$data);
+	}
 }
