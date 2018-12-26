@@ -254,9 +254,4 @@ class Template extends MY_Controller {
 		$this->load->view('admin_master',$data);
 	}
 
-	public function room_entry_page(){
-		$data['title'] = 'Room Or Bed Info';
-		$data['content'] = 'administration/room_page';
-		$this->load->view('admin_master',$data);
-	}
 }
