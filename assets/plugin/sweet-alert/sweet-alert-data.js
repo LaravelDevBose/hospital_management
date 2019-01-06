@@ -35,6 +35,15 @@ $(function () {
     });
 });
 
+function sweetAlertMessage(title, text, type) {
+	swal({
+		title: title,
+		text: text,
+		type: type,
+	});
+}
+
+
 //These codes takes from http://t4t5.github.io/sweetalert/
 function showBasicMessage() {
     swal("Good Morning!");
@@ -59,6 +68,7 @@ function showConfirmMessage() {
         closeOnConfirm: false
     }, function () {
         swal("Deleted!", "Your imaginary file has been deleted.", "success");
+        return true;
     });
 }
 
@@ -76,10 +86,13 @@ function showCancelMessage() {
     }, function (isConfirm) {
         if (isConfirm) {
             swal("Deleted!", "Your imaginary file has been deleted.", "success");
+            return true;
         } else {
             swal("Cancelled", "Your imaginary file is safe :)", "error");
+            return false;
         }
     });
+
 }
 
 function showWithCustomIconMessage() {

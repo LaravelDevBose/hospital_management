@@ -60,8 +60,31 @@ $route['department'] 			=	'Template/department_info_page';
 $route['designation'] 			=	'Template/designation_info_page';
 $route['expense_head']			=	'Template/expense_head_info_page';
 $route['salary_month']			=	'Template/salary_month_entry_page';
-$route['test_report_template']	=	'Template/test_report_template_entry';
+
 $route['category_entry']		=	'Template/category_entry_page';
 $route['brand_entry']			=	'Template/brand_entry_page';
 $route['unit_entry']			=	'Template/unit_entry_page';
-$route['room_entry']			=	'Template/room_entry_page';
+
+
+$route['test_entry']			=	'RoomController/room_entry_page';
+$route['test_store']			=	'RoomController/room_data_store';
+$route['test_edit/(:any)']		=	'RoomController/room_edit_page/$1';
+$route['test_update/(:any)']	=	'RoomController/room_data_update/$1';
+$route['test_delete/(:any)']	=	'RoomController/room_data_delete/$1';
+
+
+$route['test_template_list']			=	'TemplateController/test_template_list';
+$route['test_template_entry']			=	'TemplateController/test_template_entry';
+$route['test_template_insert']			=	'TemplateController/test_template_store';
+$route['test_template_preview/(:any)']	=	'TemplateController/test_template_view/$1';
+$route['test_template_edit/(:any)']		=	'TemplateController/test_template_edit/$1';
+$route['test_template_update/(:any)']	=	'TemplateController/test_template_update/$1';
+$route['test_template_delete/(:any)']	=	'TemplateController/test_template_delete/$1';
+
+
+
+$route['room_entry']			=	'RoomController/room_entry_page';
+$route['room_store']			=	'RoomController/room_data_store';
+$route['room_edit/(:any)']		=	'RoomController/room_edit_page/$1';
+$route['room_update/(:any)']	=	'RoomController/room_data_update/$1';
+$route['room_delete/(:any)']	=	'RoomController/room_data_delete/$1';

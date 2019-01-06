@@ -31,8 +31,7 @@ class LoginController extends MY_Controller
 
 	public function admin_logout_submit(){
 
-		$this->session->unset_userdata('id');
-		$this->session->unset_userdata('name');
+		$this->session->unset_userdata('auth');
 		$this->session->sess_destroy();
 		return redirect('/');
 	}

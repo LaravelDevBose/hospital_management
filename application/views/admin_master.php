@@ -29,6 +29,7 @@
 	<link href="<?= base_url()?>assets/plugin/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
 	<link href="<?= base_url()?>assets/plugin/bootstrap-editable/bootstrap-editable/css/bootstrap-editable.css" rel="stylesheet" type="text/css" />
 	<link href="<?= base_url()?>assets/plugin/bootstrap-editable/inputs-ext/address/address.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="<?php echo base_url()?>assets/plugin/fancyBox/css/jquery.fancybox.css?v=2.1.5" media="screen" />
 	<!-- Material Design Lite CSS -->
 	<link rel="stylesheet" href="<?= base_url()?>assets/plugin/material/material.min.css">
 	<link rel="stylesheet" href="<?= base_url()?>assets/css/material_style.css">
@@ -40,6 +41,7 @@
 	<link href="<?= base_url()?>assets/css/responsive.css" rel="stylesheet" type="text/css" />
 	<link href="<?= base_url()?>assets/css/theme-color.css" rel="stylesheet" type="text/css" />
 	<link href="<?= base_url()?>assets/plugin/summernote/summernote.css" rel="stylesheet">
+	<link href="<?= base_url()?>assets/plugin/sweet-alert/sweetalert.min.css" rel="stylesheet" >
 	<!-- dropzone -->
 	<link href="<?= base_url()?>assets/plugin/dropzone/dropzone.css" rel="stylesheet" media="screen">
 	<!--select2-->
@@ -114,6 +116,9 @@
 <script src="<?= base_url()?>assets/plugin/material/material.min.js"></script>
 <!-- dropzone -->
 <script src="<?= base_url()?>assets/plugin/dropzone/dropzone.js" ></script>
+<!-- Sweet Alert -->
+<script src="<?= base_url()?>assets/plugin/sweet-alert/sweetalert.min.js" ></script>
+<script src="<?= base_url()?>assets/plugin/sweet-alert/sweet-alert-data.js" ></script>
 <!--select2-->
 <script src="<?= base_url()?>assets/plugin/select2/js/select2.js" ></script>
 <script src="<?= base_url()?>assets/plugin/select2/js/select2-init.js" ></script>
@@ -122,6 +127,57 @@
 <script >
 	$(document).ready(function() {
 		$('#summernote').summernote();
+	});
+</script>
+<script type="text/javascript" src="<?php echo base_url()?>assets/plugin/fancyBox/js/jquery.fancybox.js?v=2.1.5"></script>
+<script type="text/javascript">
+
+	$(document).ready(function() {
+
+		$('.fancybox').fancybox({
+			padding: 0,
+			openEffect : 'elastic',
+			openSpeed  : 150,
+			closeEffect : 'elastic',
+			closeSpeed  : 150,
+			maxWidth    : "60%",
+			autoSize    : true,
+			autoScale   : true,
+			fitToView   : true,
+			helpers : {
+				title : {
+					type : 'inside'
+				},
+				overlay : {
+					css : {
+						'background' : 'rgba(0,0,0,0.3)'
+					}
+				}
+			}
+		});
+
+		$('.fancyboxview').fancybox({
+			padding: 0,
+			openEffect : 'elastic',
+			openSpeed  : 150,
+			closeEffect : 'elastic',
+			closeSpeed  : 150,
+			maxWidth    : "95%",
+			autoSize    : true,
+			autoScale   : true,
+			fitToView   : true,
+			helpers : {
+				title : {
+					type : 'inside'
+				},
+				overlay : {
+					css : {
+						'background' : 'rgba(0,0,0,0.3)'
+					}
+				}
+			}
+		});
+
 	});
 </script>
 </body>

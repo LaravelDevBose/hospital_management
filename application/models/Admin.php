@@ -26,12 +26,15 @@ class Admin extends CI_Model
 
 		if($res)
 		{
-			$attr = array(
-				'id' => $res->admin_id,
-				'name' => $res->username,
-				'avatar' => $res->avatar
-			);
-			$this->session->set_userdata($attr);
+			unset($res->password);
+			unset($res->created_by);
+			unset($res->updated_by);
+			unset($res->created_at);
+			unset($res->updated_at);
+			unset($res->status);
+			unset($res->active_status);
+
+			$this->session->set_userdata('auth',$res);
 			return TRUE;
 		}
 		else{
@@ -51,7 +54,7 @@ class Admin extends CI_Model
 	/*===================Admin Login Check======================*/
 	public function is_admin_logged_in()
 	{
-		return $this->session->userdata('id') != FALSE;
+		return $this->auth->admin_id != FALSE;
 	}
 
 	/*====== get single admin info =================*/
@@ -67,7 +70,7 @@ class Admin extends CI_Model
 
 	/*=========== check admin Current Password ===========*/
 	public function check_admin_password(){
-		$user_name = $this->session->userData('name');
+		$user_name = $this->auth->username;
 		$password = md5($this->input->post('crnt_password'));
 
 		$this->db->select('*');
@@ -100,8 +103,8 @@ class Admin extends CI_Model
 			'email'=>$this->input->post('email'),
 			'phone_num'=>$this->input->post('phone_num'),
 			'avatar'=>$image_path,
-			'updated_by'=>$this->session->userData('name'),
-			'updated_at'=>date('Y-m-d H:i:s'),
+			'updated_by'=>$this->auth->username,
+			'updated_at'=>$this->date_time,
 		);
 
 		$this->db->where('admin_id', $admin_id);
@@ -121,7 +124,7 @@ class Admin extends CI_Model
 			'password' => md5($this->input->post('password'))
 		);
 
-		$this->db->where('admin_id', $this->session->userData('id'));
+		$this->db->where('admin_id', $this->auth->admin_id);
 		$this->db->update('tbl_admins', $attr);
 
 		if($this->db->affected_rows()){

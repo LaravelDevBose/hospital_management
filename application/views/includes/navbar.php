@@ -45,15 +45,15 @@
 					<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
 						<?php
 							$avatar = base_url().'assets/img/dp.jpg';
-							if($this->session->userData('avatar')){
-								$avatar = $this->session->userData('avatar');
+							if($this->auth->avatar){
+								$avatar = $this->auth->avatar;
 								if(!file_exists($avatar) || !@getimagesize($avatar)){
 									$avatar = base_url().'assets/img/dp.jpg';
 								}
 							}
 						?>
 						<img alt="" class="img-circle " src="<?= $avatar ?>" />
-						<span class="username username-hide-on-mobile"> <?= ucfirst($this->session->userData('name')) ?> </span>
+						<span class="username username-hide-on-mobile"> <?= ucfirst($this->auth->username) ?> </span>
 						<i class="fa fa-angle-down"></i>
 					</a>
 					<ul class="dropdown-menu dropdown-menu-default">

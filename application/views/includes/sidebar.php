@@ -18,8 +18,8 @@
 						<div class="pull-left image">
 							<?php
 							$avatar = base_url().'assets/img/dp.jpg';
-							if($this->session->userData('avatar')){
-								$avatar = $this->session->userData('avatar');
+							if($this->auth->avatar){
+								$avatar = $this->auth->avatar;
 								if(!file_exists($avatar) || !@getimagesize($avatar)){
 									$avatar = base_url().'assets/img/dp.jpg';
 								}
@@ -28,7 +28,7 @@
 							<img src="<?= $avatar; ?>" class="img-circle user-img-circle"  alt="User Image" />
 						</div>
 						<div class="pull-left info">
-							<p><?= ucfirst($this->session->userData('name'));?></p>
+							<p><?= ucfirst($this->auth->username);?></p>
 							<a href="#"><i class="fa fa-circle user-online"></i><span class="txtOnline"> Online</span></a>
 						</div>
 					</div>
@@ -306,7 +306,13 @@
 							</a>
 						</li>
 						<li class="nav-item  ">
-							<a href="<?= base_url()?>test_report_template" class="nav-link ">
+							<a href="<?= base_url()?>test_list" class="nav-link ">
+								<span class="title">Test List</span>
+							</a>
+						</li>
+
+						<li class="nav-item  ">
+							<a href="<?= base_url()?>test_template_list" class="nav-link ">
 								<span class="title">Test Report Template</span>
 							</a>
 						</li>

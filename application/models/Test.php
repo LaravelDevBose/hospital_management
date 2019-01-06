@@ -2,18 +2,15 @@
 /**
  * Created by PhpStorm.
  * User: Arup
- * Date: 12/25/2018
- * Time: 10:13 AM
+ * Date: 1/6/2019
+ * Time: 5:50 PM
  */
 
-defined('BASEPATH') OR exit('No direct script access allowed');
-
-
-class Room extends CI_Model
+class Test extends CI_Model
 {
+	protected $table = 'tbl_tests';
+	protected $column = 'test_id,test_code,test_name,test_parent_id,test_activation,test_status';
 
-	protected $column = 'room_id,room_code,room_name,bathroom,tv,ac,room_details,room_status';
-	protected $table = 'tbl_rooms';
 
 	public function _create_code(){
 		$code_info = $this->db->order_by('room_id','desc')->limit('1')->get($this->table)->row();
@@ -45,7 +42,7 @@ class Room extends CI_Model
 	}
 	public function _get_all_data(){
 
-		$res = $this->db->select($this->column)->where('room_status', 'a')->order_by('room_id', 'desc')->get($this->table)->result();
+		$res = $this->db->select($this->column)->where('test_status', 'a')->order_by('test_id', 'desc')->get($this->table)->result();
 		if($res){
 			return $res;
 		}
