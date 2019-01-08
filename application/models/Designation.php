@@ -11,19 +11,79 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Designation extends CI_Model
 {
 	protected $table = 'tbl_designations';
-	protected $column = array('desg_id','desg_code','desg_name','desg_status');
+	protected $column = 'desg_id,desg_code,desg_name,desg_status';
+	protected $id = 'desg_id';
+	protected $code = 'desg_code';
+	protected $name = 'desg_name';
+	protected $status = 'desg_status';
 
-	public function designation_insert(){
+	public function _create_code(){
+		$code_info = $this->db->order_by($this->id,'desc')->limit('1')->get($this->table)->row();
+		if(is_null($code_info)|| !isset($code_info)){
+			$generateCode = 'D001';
+		}else{
 
+			$num = substr($code_info->desg_code, 1, strlen($code_info->desg_code));
+
+			if($num < 9):
+				$num+=1;
+				$generateCode = 'D00'.$num;
+			elseif($num < 99):
+				$num+=1;
+				$generateCode = 'D0'.$num;
+			else:
+				$num+=1;
+				$generateCode = 'D'.$num;
+
+			endif;
+		}
+
+		return $generateCode;
 	}
-	public function designation_data_by_id($id = Null){
 
+	public function _get_all_data(){
+		$res = $this->db->select($this->column)->where($this->status, 'A')->order_by($this->id, 'desc')->get($this->table)->result();
+
+		if($res){return $res;}return false;
 	}
-	public function designation_update($id = Null){
 
+	public function _store(){
+		$attr[$this->code]= $this->_create_code();
+		$attr[$this->name]= $this->input->post($this->name);
+		$attr[$this->status]= 'A';
+		$attr['created_by']= $this->auth->username;
+		$attr['created_at']= $this->date_time;
+
+		$res = $this->db->insert($this->table,$attr);
+
+		if($res){return $res; }return false;
 	}
 
-	public function designation_delete($id = Null){
+	public function _data_by_id($id = Null){
+		$res = $this->db->select($this->column)->where($this->status, 'A')->where($this->id, $id)->get($this->table)->row();
 
+		if($res){return $res;}return false;
+	}
+
+	public function _update($id = Null){
+		$attr[$this->name]= $this->input->post($this->name);
+		$attr['updated_by']= $this->auth->username;
+		$attr['updated_at']= $this->date_time;
+
+		$this->db->where($this->id, $id);
+		$this->db->update($this->table,$attr);
+
+		if($this->db->affected_rows()){return true; }return false;
+	}
+
+	public function _delete($id = Null){
+		$attr[$this->status]= 'D';
+		$attr['updated_by']= $this->auth->username;
+		$attr['updated_at']= $this->date_time;
+
+		$this->db->where($this->id, $id);
+		$this->db->update($this->table,$attr);
+
+		if($this->db->affected_rows()){return true; }return false;
 	}
 }

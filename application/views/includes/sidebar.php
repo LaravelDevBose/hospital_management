@@ -285,13 +285,13 @@
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="<?= base_url()?>department" class="nav-link ">
+							<a href="<?= base_url()?>department_page" class="nav-link ">
 								<span class="title">Department</span>
 								<span class="selected"></span>
 							</a>
 						</li>
 						<li class="nav-item ">
-							<a href="<?= base_url()?>designation" class="nav-link ">
+							<a href="<?= base_url()?>designation_page" class="nav-link ">
 								<span class="title">Designation</span>
 							</a>
 						</li>
@@ -301,12 +301,12 @@
 							</a>
 						</li>
 						<li class="nav-item  ">
-							<a href="<?= base_url()?>salary_month" class="nav-link ">
+							<a href="<?= base_url()?>salary_month_entry" class="nav-link ">
 								<span class="title">Salary Month</span>
 							</a>
 						</li>
 						<li class="nav-item  ">
-							<a href="<?= base_url()?>test_list" class="nav-link ">
+							<a href="<?= base_url()?>test_entry" class="nav-link ">
 								<span class="title">Test List</span>
 							</a>
 						</li>

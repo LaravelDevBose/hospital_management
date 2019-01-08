@@ -41,6 +41,7 @@ function sweetAlertMessage(title, text, type) {
 		text: text,
 		type: type,
 	});
+	// location.reload();
 }
 
 

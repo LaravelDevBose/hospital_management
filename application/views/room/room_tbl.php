@@ -31,7 +31,7 @@
 			</details>
 		</td>
 		<td>
-			<a href="<?= base_url()?>room_edit/<?= $room->room_id?>" class="btn btn-primary btn-xs linka fancybox fancybox.ajax">
+			<a data-src="<?= base_url()?>room_edit/<?= $room->room_id?>" href="javascript:;"  data-fancybox data-type="ajax" class="btn btn-primary btn-xs">
 				<i class="fa fa-pencil"></i>
 			</a>
 			<a href="<?= base_url()?>room_delete/<?= $room->room_id?>" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure..?');">

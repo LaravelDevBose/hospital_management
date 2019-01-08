@@ -54,7 +54,12 @@ class Admin extends CI_Model
 	/*===================Admin Login Check======================*/
 	public function is_admin_logged_in()
 	{
-		return $this->auth->admin_id != FALSE;
+//		print_r($this->auth); die();
+		if(isset($this->session->userdata('auth')->admin_id)){
+			return $this->session->userdata('auth')->admin_id != FALSE;
+		}
+
+		return false;
 	}
 
 	/*====== get single admin info =================*/

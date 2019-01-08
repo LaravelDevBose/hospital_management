@@ -13,4 +13,5 @@ $autoload['config'] = array();
 
 $autoload['language'] = array();
 
-$autoload['model'] = array('Admin','Image_upload','Room', 'ReportTemplate','Test');
+$autoload['model'] = array('Admin','Image_upload','Room', 'ReportTemplate','Test','SalaryMonth','ExpenseHead','Designation',
+						'Department');

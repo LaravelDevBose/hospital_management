@@ -59,7 +59,7 @@ class RoomController extends MY_Controller
 		}else{
 			$data['warning']="No Data Found";
 			$this->message($data);
-			redirect('agent/insert');
+			redirect('room_entry');
 		}
 
 	}

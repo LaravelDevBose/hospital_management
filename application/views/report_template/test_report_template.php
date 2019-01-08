@@ -21,8 +21,9 @@
 									<div class="col-md-8">
 										<select class="form-control select2" name="test_id" data-placeholder="Select A Test">
 											<option value="">Select...</option>
-											<option value="1">Yes</option>
-											<option value="2">No</option>
+											<?php if(isset($tests) && $tests): foreach ($tests as  $test):?>
+											<option value="<?= $test->test_id?>"><?= $test->test_name.'-'.$test->test_code; ?></option>
+											<?php endforeach; endif; ?>
 										</select>
 									</div>
 								</div>

@@ -56,21 +56,43 @@ $route['test_report_delivery'] 		= 'Template/test_report_delivery_page';
 $route['test_report_create'] 		= 'Template/test_report_create';
 
 
-$route['department'] 			=	'Template/department_info_page';
-$route['designation'] 			=	'Template/designation_info_page';
-$route['expense_head']			=	'Template/expense_head_info_page';
-$route['salary_month']			=	'Template/salary_month_entry_page';
 
 $route['category_entry']		=	'Template/category_entry_page';
 $route['brand_entry']			=	'Template/brand_entry_page';
 $route['unit_entry']			=	'Template/unit_entry_page';
 
+$route['department_page'] 			=	'DepartmentController/department_info_page';
+$route['department_store'] 			=	'DepartmentController/department_store';
+$route['department_edit/(:any)'] 	=	'DepartmentController/department_edit/$1';
+$route['department_update/(:any)'] 	=	'DepartmentController/department_update/$1';
+$route['department_delete/(:any)'] 	=	'DepartmentController/department_delete/$1';
 
-$route['test_entry']			=	'RoomController/room_entry_page';
-$route['test_store']			=	'RoomController/room_data_store';
-$route['test_edit/(:any)']		=	'RoomController/room_edit_page/$1';
-$route['test_update/(:any)']	=	'RoomController/room_data_update/$1';
-$route['test_delete/(:any)']	=	'RoomController/room_data_delete/$1';
+
+$route['designation_page'] 				=	'DesignationController/designation_info_page';
+$route['designation_store'] 			=	'DesignationController/designation_store';
+$route['designation_edit/(:any)'] 		=	'DesignationController/designation_edit/$1';
+$route['designation_update/(:any)'] 	=	'DesignationController/designation_update/$1';
+$route['designation_delete/(:any)'] 	=	'DesignationController/designation_delete/$1';
+
+
+$route['expense_head']					=	'ExpenseHeadController/expense_head_page';
+$route['expense_head_store']			=	'ExpenseHeadController/expense_head_store';
+$route['expense_head_edit/(:any)']		=	'ExpenseHeadController/expense_head_edit/$1';
+$route['expense_head_update/(:any)']	=	'ExpenseHeadController/expense_head_update/$1';
+$route['expense_head_delete/(:any)']	=	'ExpenseHeadController/expense_head_delete/$1';
+
+
+$route['salary_month_entry']			=	'SalaryMonthController/salary_month_entry';
+$route['salary_month_store']			=	'SalaryMonthController/salary_month_store';
+$route['salary_month_edit/(:any)']		=	'SalaryMonthController/salary_month_edit/$1';
+$route['salary_month_update/(:any)']	=	'SalaryMonthController/salary_month_update/$1';
+$route['salary_month_delete/(:any)']	=	'SalaryMonthController/salary_month_delete/$1';
+
+$route['test_entry']			=	'TestController/test_entry_page';
+$route['test_store']			=	'TestController/test_data_store';
+$route['test_edit/(:any)']		=	'TestController/test_edit_page/$1';
+$route['test_update/(:any)']	=	'TestController/test_data_update/$1';
+$route['test_delete/(:any)']	=	'TestController/test_data_delete/$1';
 
 
 $route['test_template_list']			=	'TemplateController/test_template_list';

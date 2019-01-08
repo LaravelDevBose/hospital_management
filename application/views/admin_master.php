@@ -29,7 +29,7 @@
 	<link href="<?= base_url()?>assets/plugin/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
 	<link href="<?= base_url()?>assets/plugin/bootstrap-editable/bootstrap-editable/css/bootstrap-editable.css" rel="stylesheet" type="text/css" />
 	<link href="<?= base_url()?>assets/plugin/bootstrap-editable/inputs-ext/address/address.css" rel="stylesheet" type="text/css" />
-	<link rel="stylesheet" href="<?php echo base_url()?>assets/plugin/fancyBox/css/jquery.fancybox.css?v=2.1.5" media="screen" />
+	<link rel="stylesheet" href="<?php echo base_url()?>assets/plugin/fancyBox/css/jquery.fancybox.css?v=3.5.6" media="screen" />
 	<!-- Material Design Lite CSS -->
 	<link rel="stylesheet" href="<?= base_url()?>assets/plugin/material/material.min.css">
 	<link rel="stylesheet" href="<?= base_url()?>assets/css/material_style.css">
@@ -50,6 +50,7 @@
 	<!-- favicon -->
 	<link rel="shortcut icon" href="<?= base_url()?>assets/img/favicon.ico" />
 	<script src="<?= base_url()?>assets/plugin/jquery.min.js" ></script>
+
 </head>
 <!-- END HEAD -->
 <body class="page-header-fixed sidemenu-closed-hidelogo page-content-white page-md header-white white-sidebar-color logo-indigo">
@@ -129,7 +130,7 @@
 		$('#summernote').summernote();
 	});
 </script>
-<script type="text/javascript" src="<?php echo base_url()?>assets/plugin/fancyBox/js/jquery.fancybox.js?v=2.1.5"></script>
+<script type="text/javascript" src="<?php echo base_url()?>assets/plugin/fancyBox/js/jquery.fancybox.js?v=3.5.6"></script>
 <script type="text/javascript">
 
 	$(document).ready(function() {
