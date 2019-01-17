@@ -13,16 +13,8 @@
 
 					<div class="card-body ">
 						<div class="row">
-
-							<div class="col-md-4">
-								<div class="form-group row">
-									<label class="control-label col-md-5" style="padding-right: 5px">Unit Id<span class="required"> * </span> </label>
-									<div class="col-md-7">
-										<input type="text" name="firstname" value="U00001" data-required="1" placeholder="Unit Id" class="form-control input-height" />
-									</div>
-								</div>
-							</div>
-							<div class="col-md-4">
+							<div class="col-md-4"></div>
+							<div class="col-md-4 ">
 								<div class="form-group row">
 									<label class="control-label col-md-4" style="padding-right: 5px">Added By <span class="required">*</span> </label>
 									<div class="col-md-8">
@@ -57,13 +49,13 @@
 								<div class="form-group row">
 									<label class="control-label col-md-4">Unit Name <span class="required"> * </span> </label>
 									<div class="col-md-8">
-										<input type="text" name="firstname" data-required="1" placeholder="Unit name" class="form-control input-height" />
+										<input type="text" name="unit_name" id="unit_name" data-required="1" placeholder="Unit name" class="form-control input-height" />
 									</div>
 								</div>
 
 							</div>
 							<div class="col-md-4">
-								<button type="submit" class="btn btn-info m-r-20">Submit</button>
+								<button type="button" id="unit_submit" class="btn btn-info m-r-20">Submit</button>
 							</div>
 						</div>
 					</div>
@@ -86,98 +78,28 @@
 						<thead>
 						<tr>
 
-							<th>#ID</th>
+							<th>#</th>
 							<th>Creating Date</th>
 							<th>Unit Name</th>
 							<th> Actions </th>
 						</tr>
 						</thead>
-						<tbody>
-						<tr class="odd gradeX">
-
-							<td>D0001</td>
-							<td>10 jan 2018</td>
-							<td>Neurology</td>
-							<td>
-								<a href="edit_patient.html" class="btn btn-primary btn-xs">
-									<i class="fa fa-pencil"></i>
-								</a>
-								<a href="javascript().html" class="btn btn-danger btn-xs">
-									<i class="fa fa-trash-o "></i>
-								</a>
-							</td>
-						</tr>
-						<tr class="odd gradeX">
-
-							<td>D0001</td>
-							<td>10 jan 2018</td>
-							<td>Neurology</td>
-							<td>
-								<a href="edit_patient.html" class="btn btn-primary btn-xs">
-									<i class="fa fa-pencil"></i>
-								</a>
-								<a href="javascript().html" class="btn btn-danger btn-xs">
-									<i class="fa fa-trash-o "></i>
-								</a>
-							</td>
-						</tr>
-						<tr class="odd gradeX">
-
-							<td>D0001</td>
-							<td>10 jan 2018</td>
-							<td>Neurology</td>
-							<td>
-								<a href="edit_patient.html" class="btn btn-primary btn-xs">
-									<i class="fa fa-pencil"></i>
-								</a>
-								<a href="javascript().html" class="btn btn-danger btn-xs">
-									<i class="fa fa-trash-o "></i>
-								</a>
-							</td>
-						</tr>
-						<tr class="odd gradeX">
-
-							<td>D0001</td>
-							<td>10 jan 2018</td>
-							<td>Neurology</td>
-							<td>
-								<a href="edit_patient.html" class="btn btn-primary btn-xs">
-									<i class="fa fa-pencil"></i>
-								</a>
-								<a href="javascript().html" class="btn btn-danger btn-xs">
-									<i class="fa fa-trash-o "></i>
-								</a>
-							</td>
-						</tr>
-						<tr class="odd gradeX">
-
-							<td>D0001</td>
-							<td>10 jan 2018</td>
-							<td>Neurology</td>
-							<td>
-								<a href="edit_patient.html" class="btn btn-primary btn-xs">
-									<i class="fa fa-pencil"></i>
-								</a>
-								<a href="javascript().html" class="btn btn-danger btn-xs">
-									<i class="fa fa-trash-o "></i>
-								</a>
-							</td>
-						</tr>
-						<tr class="odd gradeX">
-
-							<td>D0001</td>
-							<td>10 jan 2018</td>
-							<td>Neurology</td>
-							<td>
-								<a href="edit_patient.html" class="btn btn-primary btn-xs">
-									<i class="fa fa-pencil"></i>
-								</a>
-								<a href="javascript().html" class="btn btn-danger btn-xs">
-									<i class="fa fa-trash-o "></i>
-								</a>
-							</td>
-						</tr>
-
+						<tbody id="tbody">
+							<?php $i=1; if(isset($units) && $units): foreach($units as $unit):?>
+							<tr class="odd gradeX">
+								<td><?= $i++; ?></td>
+								<td><?php $date = new DateTime($unit->created_at); echo date_format($date, 'd M Y');?></td>
+								<td><?= ucwords($unit->unit_name); ?></td>
+								<td>
+									<a data-src="<?= base_url()?>unit_edit/<?= $unit->unit_id?>" href="javascript:;"  data-fancybox data-type="ajax" class="btn btn-primary btn-xs">
+										<i class="fa fa-pencil"></i>
+									</a>
+									<a href="<?= base_url();?>unit_delete/<?= $unit->unit_id?>" onclick="return confirm('Are You Sure..??')" class="btn btn-danger btn-xs">
+										<i class="fa fa-trash-o "></i>
+									</a>
+								</td>
+							</tr>
+							<?php endforeach; endif; ?>
 						</tbody>
 					</table>
 				</div>
@@ -185,3 +107,4 @@
 		</div>
 	</div>
 </div>
+<?php $this->load->view('ajax/unit_ajax');?>

@@ -8,7 +8,7 @@
 <div class="">
 	<div class="row">
 		<div class="col-md-12 col-sm-12">
-			<form action="#" id="form_sample_1" class="form-horizontal">
+			<form action="#" id="cat_form" class="form-horizontal">
 				<div class="card card-topline-red">
 
 					<div class="card-body ">
@@ -18,7 +18,7 @@
 								<div class="form-group row">
 									<label class="control-label col-md-5" style="padding-right: 5px">Category Id<span class="required"> * </span> </label>
 									<div class="col-md-7">
-										<input type="text" name="firstname" value="C00001" data-required="1" placeholder="Category Id" class="form-control input-height" />
+										<input type="text" name="firstname" value="<?= $cat_code; ?>" data-required="1" placeholder="Category Id" class="form-control input-height" />
 									</div>
 								</div>
 							</div>
@@ -56,13 +56,13 @@
 								<div class="form-group row">
 									<label class="control-label col-md-4">Category Name <span class="required"> * </span> </label>
 									<div class="col-md-8">
-										<input type="text" name="firstname" data-required="1" placeholder="Category name" class="form-control input-height" />
+										<input type="text" name="cat_name" id="cat_name" required data-required="1" placeholder="Category name" class="form-control input-height" />
 									</div>
 								</div>
 
 							</div>
 							<div class="col-md-4">
-								<button type="submit" class="btn btn-info m-r-20">Submit</button>
+								<button type="submit" id="cat_submit" class="btn btn-info m-r-20">Submit</button>
 							</div>
 						</div>
 					</div>
@@ -85,98 +85,31 @@
 						<thead>
 						<tr>
 
-							<th>#ID</th>
+							<th>#</th>
 							<th>Creating Date</th>
+							<th>ID</th>
 							<th>Category Name</th>
 							<th> Actions </th>
 						</tr>
 						</thead>
-						<tbody>
-						<tr class="odd gradeX">
+						<tbody id="tbody">
+							<?php $i=1; if(isset($categorys) && $categorys): foreach($categorys as $category): ?>
+								<tr class="odd gradeX">
 
-							<td>D0001</td>
-							<td>10 jan 2018</td>
-							<td>Neurology</td>
-							<td>
-								<a href="#" class="btn btn-primary btn-xs">
-									<i class="fa fa-pencil"></i>
-								</a>
-								<a href="#" class="btn btn-danger btn-xs">
-									<i class="fa fa-trash-o "></i>
-								</a>
-							</td>
-						</tr>
-						<tr class="odd gradeX">
-
-							<td>D0001</td>
-							<td>10 jan 2018</td>
-							<td>Neurology</td>
-							<td>
-								<a href="#" class="btn btn-primary btn-xs">
-									<i class="fa fa-pencil"></i>
-								</a>
-								<a href="#" class="btn btn-danger btn-xs">
-									<i class="fa fa-trash-o "></i>
-								</a>
-							</td>
-						</tr>
-						<tr class="odd gradeX">
-
-							<td>D0001</td>
-							<td>10 jan 2018</td>
-							<td>Neurology</td>
-							<td>
-								<a href="#" class="btn btn-primary btn-xs">
-									<i class="fa fa-pencil"></i>
-								</a>
-								<a href="#" class="btn btn-danger btn-xs">
-									<i class="fa fa-trash-o "></i>
-								</a>
-							</td>
-						</tr>
-						<tr class="odd gradeX">
-
-							<td>D0001</td>
-							<td>10 jan 2018</td>
-							<td>Neurology</td>
-							<td>
-								<a href="#" class="btn btn-primary btn-xs">
-									<i class="fa fa-pencil"></i>
-								</a>
-								<a href="#" class="btn btn-danger btn-xs">
-									<i class="fa fa-trash-o "></i>
-								</a>
-							</td>
-						</tr>
-						<tr class="odd gradeX">
-
-							<td>D0001</td>
-							<td>10 jan 2018</td>
-							<td>Neurology</td>
-							<td>
-								<a href="#" class="btn btn-primary btn-xs">
-									<i class="fa fa-pencil"></i>
-								</a>
-								<a href="#" class="btn btn-danger btn-xs">
-									<i class="fa fa-trash-o "></i>
-								</a>
-							</td>
-						</tr>
-						<tr class="odd gradeX">
-
-							<td>D0001</td>
-							<td>10 jan 2018</td>
-							<td>Neurology</td>
-							<td>
-								<a href="#" class="btn btn-primary btn-xs">
-									<i class="fa fa-pencil"></i>
-								</a>
-								<a href="#" class="btn btn-danger btn-xs">
-									<i class="fa fa-trash-o "></i>
-								</a>
-							</td>
-						</tr>
-
+									<td><?= $i++ ?></td>
+									<td><?php $date = new DateTime($category->created_at); echo date_format($date, 'd M Y');?></td>
+									<td><?= $category->cat_code; ?></td>
+									<td><?= $category->cat_name; ?></td>
+									<td>
+										<a data-src="<?= base_url()?>category_edit/<?= $category->cat_id; ?>" href="javascript:;"  data-fancybox data-type="ajax" class="btn btn-primary btn-xs">
+											<i class="fa fa-pencil"></i>
+										</a>
+										<a href="<?= base_url()?>category_delete/<?= $category->cat_id?>" onclick="return confirm('Are You Sure..??')" class="btn btn-danger btn-xs">
+											<i class="fa fa-trash-o "></i>
+										</a>
+									</td>
+								</tr>
+							<?php endforeach; endif; ?>
 						</tbody>
 					</table>
 				</div>
@@ -184,3 +117,6 @@
 		</div>
 	</div>
 </div>
+
+
+<?php $this->load->view('ajax/category_ajax');?>

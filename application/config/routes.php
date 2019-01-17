@@ -57,9 +57,26 @@ $route['test_report_create'] 		= 'Template/test_report_create';
 
 
 
-$route['category_entry']		=	'Template/category_entry_page';
-$route['brand_entry']			=	'Template/brand_entry_page';
-$route['unit_entry']			=	'Template/unit_entry_page';
+
+$route['category_entry'] 			=	'CategoryController/category_info_page';
+$route['category_store'] 			=	'CategoryController/category_store';
+$route['category_edit/(:any)'] 		=	'CategoryController/category_edit/$1';
+$route['category_update/(:any)'] 	=	'CategoryController/category_update/$1';
+$route['category_delete/(:any)'] 	=	'CategoryController/category_delete/$1';
+
+
+$route['brand_entry'] 			=	'BrandController/brand_info_page';
+$route['brand_store'] 			=	'BrandController/brand_store';
+$route['brand_edit/(:any)'] 	=	'BrandController/brand_edit/$1';
+$route['brand_update/(:any)'] 	=	'BrandController/brand_update/$1';
+$route['brand_delete/(:any)'] 	=	'BrandController/brand_delete/$1';
+
+$route['unit_entry'] 			=	'UnitController/unit_info_page';
+$route['unit_store'] 			=	'UnitController/unit_store';
+$route['unit_edit/(:any)'] 		=	'UnitController/unit_edit/$1';
+$route['unit_update/(:any)'] 	=	'UnitController/unit_update/$1';
+$route['unit_delete/(:any)'] 	=	'UnitController/unit_delete/$1';
+
 
 $route['department_page'] 			=	'DepartmentController/department_info_page';
 $route['department_store'] 			=	'DepartmentController/department_store';
