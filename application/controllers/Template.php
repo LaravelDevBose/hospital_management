@@ -134,12 +134,7 @@ class Template extends MY_Controller {
 		$this->load->view('admin_master',$data);
 	}
 
-	public function doctor_list_page(){
-		$data['title'] = 'Doctor List';
-		$data['content'] = 'doctor_stuff/doctor_list';
-		$this->load->view('admin_master',$data);
-	}
-
+	
 	public function stuff_list_page(){
 		$data['title'] = 'Stuff List';
 		$data['content'] = 'doctor_stuff/stuff_list';

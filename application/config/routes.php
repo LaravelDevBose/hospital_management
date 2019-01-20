@@ -36,11 +36,31 @@ $route['supplier']				= 'Template/supplier_page';
 $route['medicine_entry']		= 'Template/medicine_entry_page';
 
 
-$route['doctor_entry']			=	'Template/doctor_entry_page';
-$route['stuff_entry']			=	'Template/stuff_entry_page';
-$route['doctor_list']			=	'Template/doctor_list_page';
-$route['stuff_list']			=	'Template/stuff_list_page';
-$route['salary_payment']		=	'Template/salary_payment_page';
+$route['doctor_list']			=	'DoctorController/doctor_list_page';
+$route['doctor_entry']			=	'DoctorController/doctor_entry_page';
+$route['doctor_store']			=	'DoctorController/doctor_store';
+$route['doctor_edit/(:any)']	=	'DoctorController/doctor_edit/$1';
+$route['doctor_update/(:any)']	=	'DoctorController/doctor_update/$1';
+$route['doctor_delete/(:any)']	=	'DoctorController/doctor_delete/$1';
+
+
+
+
+$route['stuff_list']			=	'StuffController/stuff_list_page';
+$route['stuff_entry']			=	'StuffController/stuff_entry_page';
+$route['stuff_store']			=	'StuffController/stuff_store';
+$route['stuff_edit/(:any)']		=	'StuffController/stuff_edit/$1';
+$route['stuff_update/(:any)']	=	'StuffController/stuff_update/$1';
+$route['stuff_delete/(:any)']	=	'StuffController/stuff_delete/$1';
+
+$route['salary_payment']				=	'SalaryController/salary_page';
+$route['salary_payment_store']			=	'SalaryController/salary_store';
+$route['salary_payment_edit/(:any)']	=	'SalaryController/salary_edit/$1';
+$route['salary_payment_update/(:any)']	=	'SalaryController/salary_update/$1';
+$route['salary_payment_delete/(:any)']	=	'SalaryController/salary_delete/$1';
+
+
+
 
 $route['operation_schedule_entry'] 	= 'Template/schedule_entry_page';
 $route['operation_schedule_list'] 	= 'Template/schedule_list_page';

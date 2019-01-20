@@ -32,7 +32,7 @@ class AdminController extends MY_Controller
 	public function admin_profile_page(){
 		$data['title'] = 'Admin Profile';
 		$data['content'] = 'admin/admin_profile';
-		$data['profile'] = $this->Admin->get_single_admin_data($this->session->userdata('id'));
+		$data['profile'] = $this->Admin->get_single_admin_data($this->auth->admin_id);
 		$this->load->view('admin_master', $data);
 	}
 
@@ -45,7 +45,7 @@ class AdminController extends MY_Controller
 		if($this->form_validation->run() == FALSE){
 			$data['title'] = 'Admin Profile';
 			$data['content'] = 'admin/admin_profile';
-			$data['profile'] = $this->Admin->get_single_admin_data($this->session->userdata('id'));
+			$data['profile'] = $this->Admin->get_single_admin_data($this->auth->admin_id);
 			$this->load->view('admin_master', $data);
 		}else{
 
@@ -56,7 +56,7 @@ class AdminController extends MY_Controller
 				return redirect('admin_profile');
 			}
 
-			if($this->Admin->profile_update($this->session->userdata('id'))){
+			if($this->Admin->profile_update($this->auth->admin_id)){
 
 				$data['success'] ='Profile Info updated Successfully';
 				$this->session->set_flashdata($data);
@@ -81,7 +81,7 @@ class AdminController extends MY_Controller
 		if($this->form_validation->run() == FALSE){
 			$data['title'] = 'Admin Profile';
 			$data['content'] = 'admin/admin_profile';
-			$data['profile'] = $this->Admin->get_single_admin_data($this->session->userdata('id'));
+			$data['profile'] = $this->Admin->get_single_admin_data($this->auth->admin_id);
 			$this->load->view('admin_master', $data);
 		}else {
 
