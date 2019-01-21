@@ -18,7 +18,10 @@ $route['password_change']	=	'AdminController/admin_password_change';
 $route['dashboard']				=	'DashboardController/index';
 
 
-$route['admission_entry']		=	'Template/admission_entry_page';
+$route['admission_entry']		=	'AdmissionController/admission_entry_page';
+$route['admission_store']		=	'AdmissionController/admission_store';
+$route['admission_delete/(:any)']=	'AdmissionController/admission_delete/$1';
+
 $route['patient_list']			=	'Template/patient_list';
 $route['release_entry']			=	'Template/release_entry_page';
 $route['transfer_entry']		=	'Template/transfer_entry_page';
