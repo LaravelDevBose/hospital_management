@@ -6,7 +6,7 @@
  * Time: 10:02 AM
  */
 
-class AdmissionController extends MY_Controller
+class ProductController extends MY_Controller
 {
 	public function __construct()
 	{
@@ -27,39 +27,36 @@ class AdmissionController extends MY_Controller
 		}
 	}
 
-	public function admission_list_page(){
-		$data['title'] = 'Doctor';
+	public function doctor_list_page(){
+		$data['title'] = 'Doctor List';
 		$data['content'] = 'doctor_stuff/doctor_list';
 		$data['doctors'] = $this->Doctor->_get_all_data();
 		$this->load->view('admin_master',$data);
 	}
 
 
-	public function admission_entry_page(){
-		
-		$data['title'] = 'Admission Form';
-		$data['content'] = 'admission/admission_entry_page';
-		$data['patient_code'] = $this->Patient->patient_code();
-		$data['admi_code']	= $this->Admission->admission_code();
+	public function product_entry_page(){
+		$data['title'] = 'Product Info';
+		$data['content'] = 'pharmacy/product/product_entry';
+		$data['code'] = $this->Product->_create_code();
+		$data['categories'] = $this->Category->_get_all_data();
+		$data['brands'] = $this->Brand->_get_all_data();
+		$data['units'] = $this->Unit->_get_all_data();
+		$data['products'] = $this->Product->_get_all_data();
 		$this->load->view('admin_master',$data);
 	}
 
-	public function admission_store(){
+	public function product_store(){
 
-		if($id = $this->Patient->patient_insert()){
-			$this->Emergncy->emg_insert($id);
-			$this->Admission->admission_insert($id);
-			$data['success']="insert Successful";
-			$this->message($data);
-			redirect('admission_entry');
+		if($this->Doctor->_store()){
+			$data['doctors'] = $this->Doctor->_get_all_data();
+			$this->load->view('doctor_stuff/doctor_tbl',$data);
 		}else{
-			$data['success']="insert Un-Successful";
-			$this->message($data);
-			redirect('admission_entry');
+			echo 0;
 		}
 	}
 
-	public function admission_edit($id = Null){
+	public function product_edit($id = Null){
 
 		if($res = $this->Doctor->_data_by_id($id)){
 			$data['doctor'] = $res;
@@ -73,7 +70,7 @@ class AdmissionController extends MY_Controller
 		}
 	}
 
-	public function admission_update($id = Null){
+	public function product_update($id = Null){
 		$this->form_validation->set_rules('doc_name', 'Doctor Name ', 'required|trim');
 		$this->form_validation->set_rules('doc_phone', 'Doctor Phone ', 'required|trim');
 		$this->form_validation->set_rules('doc_gender', 'Doctor Gander ', 'required|trim');
@@ -100,7 +97,7 @@ class AdmissionController extends MY_Controller
 		}
 	}
 
-	public function admission_delete($id = Null){
+	public function product_delete($id = Null){
 
 		if($this->Doctor->_delete($id)){
 			$data['success']="Delete Successful..";

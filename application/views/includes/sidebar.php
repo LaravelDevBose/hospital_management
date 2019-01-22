@@ -134,7 +134,7 @@
 							</a>
 						</li>
 						<li class="nav-item  ">
-							<a href="<?= base_url()?>medicine_entry" class="nav-link ">
+							<a href="<?= base_url()?>product_entry" class="nav-link ">
 								<span class="title">Medicine Entry</span>
 							</a>
 						</li>

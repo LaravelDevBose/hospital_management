@@ -18,7 +18,7 @@
 								<div class="form-group row">
 									<label class="control-label col-md-4">Product Id<span class="required"> * </span> </label>
 									<div class="col-md-8">
-										<input type="text" name="firstname" data-required="1" placeholder="enter first name" class="form-control input-height" />
+										<input type="text" name="Id" value="<?= $code; ?>" data-required="1" placeholder="Product Code" class="form-control input-height" />
 									</div>
 								</div>
 							</div>
@@ -26,7 +26,7 @@
 								<div class="form-group row">
 									<label class="control-label col-md-4">Created By <span class="required"> * </span> </label>
 									<div class="col-md-8">
-										<input type="text" name="firstname" data-required="1" placeholder="enter first name" class="form-control input-height" />
+										<input type="text" name="firstname" data-required="1" placeholder="Created By" value="<?= $this->auth->username; ?>" class="form-control input-height" />
 									</div>
 								</div>
 							</div>
@@ -35,7 +35,7 @@
 									<label class="control-label col-md-4">Date <span class="required"> * </span> </label>
 									<div class="col-md-8">
 										<div class="input-group date form_date " data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
-											<input class="form-control input-height" size="16" placeholder="date of Birth" type="text" value="">
+											<input class="form-control input-height" size="16" placeholder="Date" value="<?= $this->date; ?>" type="text" value="">
 											<span class="input-group-addon"><span class="fa fa-calendar"></span></span>
 										</div>
 									</div>
@@ -56,13 +56,13 @@
 								<div class="form-group row">
 									<label class="control-label col-md-4">Product Name <span class="required"> * </span> </label>
 									<div class="col-md-8">
-										<input type="text" name="firstname" data-required="1" placeholder="Enter product name" class="form-control input-height" />
+										<input type="text" name="pro_name" id="pro_name" required data-required="1" placeholder="Enter product name" class="form-control input-height" />
 									</div>
 								</div>
 								<div class="form-group row">
 									<label class="control-label col-md-4">Genetic Name<span class="required"> * </span> </label>
 									<div class="col-md-8">
-										<input type="text" name="firstname" data-required="1" placeholder="Enter genetic name" class="form-control input-height" />
+										<input type="text" name="genetic_name" id="genetic_name" data-required="1" placeholder="Enter genetic name" class="form-control input-height" />
 									</div>
 								</div>
 								<div class="form-group row">
@@ -70,10 +70,11 @@
 										<span class="required"> * </span>
 									</label>
 									<div class="col-md-8">
-										<select class="form-control select2" name="gender">
+										<select class="form-control select2" name="cat_id" id="cat_id" required>
 											<option value="">Select...</option>
-											<option value="Category 1">Male</option>
-											<option value="Category 2">Female</option>
+											<?php if(isset($categories) && $categories): foreach($categories as $category): ?>
+												<option value="<?= $category->cat_id?>"><?= $category->cat_name; ?></option>
+											<?php endforeach; endif; ?>
 										</select>
 									</div>
 								</div>
@@ -82,10 +83,11 @@
 										<span class="required"> * </span>
 									</label>
 									<div class="col-md-8">
-										<select class="form-control select2" name="gender">
+										<select class="form-control select2" name="brand_id" id="brand_id" required>
 											<option value="">Select...</option>
-											<option value="Category 1">Male</option>
-											<option value="Category 2">Female</option>
+											<?php if(isset($brands) && $brands): foreach($brands as $brnad):?>
+												<option value="<?= $brand->brnad_id?>"><?= $brnad->brand_name; ?></option>
+											<?php endforeach; endif; ?>
 										</select>
 									</div>
 								</div>
@@ -94,19 +96,19 @@
 								<div class="form-group row">
 									<label class="control-label col-md-4">Re-Order Level <span class="required"> * </span> </label>
 									<div class="col-md-8">
-										<input type="text" name="firstname" data-required="1" placeholder="0" class="form-control input-height" />
+										<input type="text" name="pro_reorder" id="pro_reorder" required data-required="1" placeholder="0" class="form-control input-height" />
 									</div>
 								</div>
 								<div class="form-group row">
 									<label class="control-label col-md-4">Purchase Rate<span class="required"> * </span> </label>
 									<div class="col-md-8">
-										<input type="text" name="firstname" data-required="1" placeholder="enter first name" class="form-control input-height" />
+										<input type="text" name="pro_purchase_rate" id="pro_purchase_rate" required data-required="1" placeholder="0" class="form-control input-height" />
 									</div>
 								</div>
 								<div class="form-group row">
 									<label class="control-label col-md-4">Sale Rate<span class="required"> * </span> </label>
 									<div class="col-md-8">
-										<input type="text" name="firstname" data-required="1" placeholder="0" class="form-control input-height" />
+										<input type="text" name="pro_sale_rate" id="pro_sale_rate" required data-required="1" placeholder="0" class="form-control input-height" />
 									</div>
 								</div>
 								<div class="form-group row">
@@ -114,10 +116,11 @@
 										<span class="required"> * </span>
 									</label>
 									<div class="col-md-8">
-										<select class="form-control select2" name="gender">
+										<select class="form-control select2" name="unit_id" id="unit_id" required>
 											<option value="">Select...</option>
-											<option value="Category 1">Male</option>
-											<option value="Category 2">Female</option>
+											<?php if(isset($units) && $units): foreach($units as $unit):?>
+												<option value="<?= $unit->unit_id?>"><?= $unit->unit_name?></option>
+											<?php endforeach; endif; ?>
 										</select>
 									</div>
 								</div>

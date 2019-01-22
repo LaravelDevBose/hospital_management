@@ -22,7 +22,11 @@ $route['admission_entry']		=	'AdmissionController/admission_entry_page';
 $route['admission_store']		=	'AdmissionController/admission_store';
 $route['admission_delete/(:any)']=	'AdmissionController/admission_delete/$1';
 
-$route['patient_list']			=	'Template/patient_list';
+$route['patient_list']			=	'PatientController/patient_list_page';
+$route['patient_edit/(:any)']	=	'PatientController/patient_edit/$1';
+$route['patient_update/(:any)']	=	'PatientController/patient_update/$1';
+$route['patient_delete/(:any)']	=	'PatientController/patient_delete/$1';
+
 $route['release_entry']			=	'Template/release_entry_page';
 $route['transfer_entry']		=	'Template/transfer_entry_page';
 $route['bed_allocation']		=	'Template/bed_allocation_page';
@@ -36,7 +40,13 @@ $route['purchase_return']		= 'Template/purchase_return_page';
 $route['sales_record']			= 'Template/sales_record_page';
 $route['purchase_record']		= 'Template/purchase_record_page';
 $route['supplier']				= 'Template/supplier_page';
-$route['medicine_entry']		= 'Template/medicine_entry_page';
+
+
+$route['product_entry']			= 'ProductController/product_entry_page';
+$route['product_store']			= 'ProductController/product_store';
+$route['product_edit/(:any)']	= 'ProductController/product_edit/$1';
+$route['product_update/(:any)']	= 'ProductController/product_update/$1';
+$route['product_delete/(:any)']	= 'ProductController/product_delete/$1';
 
 
 $route['doctor_list']			=	'DoctorController/doctor_list_page';

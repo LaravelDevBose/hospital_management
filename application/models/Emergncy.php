@@ -11,19 +11,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Emergncy extends CI_Model
 {
 	protected $table = 'tbl_emergency';
-	protected $column = 'emg_id,patient_id,emg_fullname,emg_relation,emg_mobile,emg_address,emg_status';
+	protected $column = 'emg_id,pat_id,emg_fullname,emg_relation,emg_mobile,emg_address,emg_status';
 
-	public function emg_insert($patient_id = Null){
+	public function emg_insert($pat_id = Null){
 
 		$attr= array(
-			'patient_id'=>$patient_id,
+			'pat_id'=>$pat_id,
 			'emg_fullname'=>$this->input->post('emg_fullname'),
 			'emg_relation'=>$this->input->post('emg_relation'),
 			'emg_mobile'=>$this->input->post('emg_mobile'),
 			'emg_address'=>$this->input->post('emg_address'),
 			'emg_status'=>'A',
 			'created_at' => $this->date_time,
-			'created_by'=>$this->auth->username,
 		);
 
 		$res = $this->db->insert($this->table,$attr);
@@ -46,10 +45,9 @@ class Emergncy extends CI_Model
 			'emg_mobile'=>$this->input->post('emg_mobile'),
 			'emg_address'=>$this->input->post('emg_address'),
 			'updated_at' => $this->date_time,
-			'updated_by'=>$this->auth->username,
 		);
 
-		$this->db->where('emg_id', $id);
+		$this->db->where('pat_id', $id);
 		$this->db->update($this->table,$attr);
 
 		if($this->db->affected_rows()){return TRUE; }return false;
@@ -59,7 +57,6 @@ class Emergncy extends CI_Model
 		$attr= array(
 			'emg_status'=>'D',
 			'updated_at' => $this->date_time,
-			'updated_by'=>$this->auth->username,
 		);
 
 		$this->db->where('emg_id', $id);

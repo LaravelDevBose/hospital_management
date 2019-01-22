@@ -40,9 +40,9 @@ class Patient extends CI_Model
 
 	public function patient_list()
 	{
-		$this->db->select('tbl_patient.*,tbl_emergency.*')->form($this->table);
-		$this->db->join('tbl_emergency','tbl_emergency.patient_id == tbl_patient.patient_id','left');
-		$res = $this->db->where('tbl_patient.status','A')->order_by('tbl_patient.patient_id','desc')->get()->result();
+		$this->db->select('tbl_patient.*,tbl_emergency.*')->from('tbl_patient');
+		$this->db->join('tbl_emergency','tbl_emergency.pat_id = tbl_patient.patient_id','left');
+		$res = $this->db->where('tbl_patient.patient_status','A')->order_by('tbl_patient.patient_id','desc')->get()->result();
 
 		if($res){
 			return $res;
@@ -70,17 +70,19 @@ class Patient extends CI_Model
 		);
 
 		$res = $this->db->insert($this->table,$attr);
+		$id = $this->db->insert_id();
 
-		if($res){return $res; }return false;
+		if($res){return $id; }return false;
 	}
 	public function patient_data_by_id($id = Null){
-		$res = $this->db->where('patient_id',$id)->get($this->table)->row();
+		$this->db->select('tbl_patient.*,tbl_emergency.*')->from($this->table);
+		$this->db->join('tbl_emergency','tbl_emergency.pat_id = tbl_patient.patient_id','left');
+		$res = $this->db->where('tbl_patient.patient_id',$id)->get()->row();
 
 		if($res){
 			return $res;
 		}
-		return FALSE;
-	}
+		return false;	}
 	public function patient_update($id = Null){
 		$attr = array(
 			'first_name'=>$this->input->post('first_name'),
